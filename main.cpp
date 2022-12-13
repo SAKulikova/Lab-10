@@ -21,7 +21,7 @@ public:
     }
 };
 class Provider{
-private :
+private:
     unsigned int m_id;
     std::string m_name;
     std::vector<Subscriber*> m_subscribers;
@@ -40,22 +40,21 @@ public:
         for (size_t i=0; i<m_subscribers.size(); i++)
             std::cout<< m_subscribers[i]-> Name()<< std::endl;
     }
-
 };
 
 int main()
 {
     Provider* provider1 = new Provider(0, "Ростелеком");
-    Provider* provider2 = new Provider(0, "Билайн");
-    Provider* provider3 = new Provider(0, "Мегафон");
+    Provider* provider2 = new Provider(1, "Билайн");
+    Provider* provider3 = new Provider(2, "Мегафон");
     provider1 -> PrintSubs();
     provider2 -> PrintSubs();
     provider3 -> PrintSubs();
-    Subscriber* subscriber1 = new Subscriber(0,"Иванов Иван Иванович");
-    Subscriber* subscriber2 = new Subscriber(0,"Николаева Валерия Романовна");
-    Subscriber* subscriber3 = new Subscriber(0,"Уткина Владислава Всеволодовна");
-    Subscriber* subscriber4 = new Subscriber(0,"Новиков Марк Олегович");
-    Subscriber* subscriber5 = new Subscriber(0,"Зайцева Екатерина Вадимовна");
+    Subscriber* subscriber1 = new Subscriber(12,"Иванов Иван Иванович");
+    Subscriber* subscriber2 = new Subscriber(20,"Николаева Валерия Романовна");
+    Subscriber* subscriber3 = new Subscriber(3,"Уткина Владислава Всеволодовна");
+    Subscriber* subscriber4 = new Subscriber(4,"Новиков Марк Олегович");
+    Subscriber* subscriber5 = new Subscriber(5,"Зайцева Екатерина Вадимовна");
     provider1 -> AddSubs(subscriber1);
     provider1 -> AddSubs(subscriber5);
     provider2 -> AddSubs(subscriber3);
@@ -63,9 +62,13 @@ int main()
     provider3 -> AddSubs(subscriber4);
     provider1 -> PrintSubs();
 
-
     delete provider1;
     delete provider2;
     delete provider3;
+    delete subscriber1;
+    delete subscriber2;
+    delete subscriber3;
+    delete subscriber4;
+    delete subscriber5;
     return 0;
 }
